@@ -1,22 +1,22 @@
 Summary:	Rasqal RDF Query Library
 Summary(pl):	Rasqal - biblitoteka zapytañ RDF
 Name:		rasqal
-Version:	0.9.1
+Version:	0.9.2
 Release:	1
 Epoch:		1
 License:	LGPL v2 or MPL v1.1
 Group:		Libraries
 Source0:	http://www.redland.opensource.ac.uk/dist/source/%{name}-%{version}.tar.gz
-# Source0-md5:	532417da18aaba52f67e62ea2f18070e
+# Source0-md5:	9edc98c2bd39c2d7768fbfe31380aacb
 URL:		http://www.redland.opensource.ac.uk/rasqal/
 BuildRequires:	automake >= 1.7
 BuildRequires:	flex
 BuildRequires:	libraptor-devel >= 1.3.1
 BuildRequires:	pcre-devel >= 3.9
-BuildRequires:	redland-devel >= 0.9.16
+#BuildRequires:	redland-devel >= 0.9.16
 Requires:	libraptor >= 1.3.1
 Requires:	pcre >= 3.9
-Requires:	redland >= 0.9.16
+#Requires:	redland >= 0.9.16
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -32,7 +32,7 @@ Group:		Development/Libraries
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Requires:	libraptor-devel >= 1.3.1
 Requires:	pcre-devel >= 3.9
-Requires:	redland-devel >= 0.9.16
+#Requires:	redland-devel >= 0.9.16
 
 %description devel
 Header files for the Rasqal RDF query library.
@@ -59,7 +59,9 @@ Statyczna biblioteka Rasqal.
 cp -f /usr/share/automake/config.* .
 %configure \
 	--enable-release \
-	--with-raptor=system
+	--with-raptor=system \
+	--with-triples-source=raptor
+# don't use redland as triples-source, as it would cause linking loop
 
 %{__make}
 
@@ -84,6 +86,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
+%doc docs/{README.html,api}
 %attr(755,root,root) %{_bindir}/rasqal-config
 %attr(755,root,root) %{_libdir}/lib*.so
 %{_libdir}/lib*.la
