@@ -9,7 +9,7 @@ Group:		Libraries
 Source0:	http://www.redland.opensource.ac.uk/dist/source/%{name}-%{version}.tar.gz
 # Source0-md5:	e016f511d6fb0382e0ed71e0f20a9c71
 URL:		http://www.redland.opensource.ac.uk/rasqal/
-BuildRequires:	automake >= 1.7
+BuildRequires:	automake >= 1:1.7
 BuildRequires:	flex >= 2.5.31
 BuildRequires:	libraptor-devel >= 1.4.1
 BuildRequires:	pcre-devel >= 3.9
