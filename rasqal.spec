@@ -1,13 +1,22 @@
 Summary:	Rasqal RDF Query Library
 Summary(pl):	Rasqal - biblitoteka zapytañ RDF
 Name:		rasqal
-Version:	1.0
+Version:	0.9.0
 Release:	1
+Epoch:		1
 License:	LGPL v2 or MPL v1.1
 Group:		Libraries
 Source0:	http://www.redland.opensource.ac.uk/dist/source/%{name}-%{version}.tar.gz
-# Source0-md5:	09a5eaec2d444faea24299479482c055
+# Source0-md5:	538c844e1bdb813e775355e33acbe275
 URL:		http://www.redland.opensource.ac.uk/rasqal/
+BuildRequires:	automake >= 1.7
+BuildRequires:	flex
+BuildRequires:	libraptor-devel >= 1.3.0
+BuildRequires:	pcre-devel >= 3.9
+BuildRequires:	redland-devel >= 0.9.16
+Requires:	libraptor >= 1.3.0
+Requires:	pcre >= 3.9
+Requires:	redland >= 0.9.16
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -20,7 +29,10 @@ Jêzyk zapytañ RDF.
 Summary:	Header files for the Rasqal RDF query library
 Summary(pl):	Pliki nag³ówkowe do biblioteki zapytañ RDF Rasqal
 Group:		Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
+Requires:	libraptor-devel >= 1.3.0
+Requires:	pcre-devel >= 3.9
+Requires:	redland-devel >= 0.9.16
 
 %description devel
 Header files for the Rasqal RDF query library.
@@ -32,7 +44,7 @@ Pliki nag³ówkowe do biblioteki zapytañ RDF Rasqal.
 Summary:	Static Rasqal library
 Summary(pl):	Statyczna biblioteka Rasqal
 Group:		Development/Libraries
-Requires:	%{name}-devel = %{version}
+Requires:	%{name}-devel = %{epoch}:%{version}-%{release}
 
 %description static
 Static Rasqal library.
@@ -44,7 +56,10 @@ Statyczna biblioteka Rasqal.
 %setup -q
 
 %build
-%configure
+cp -f /usr/share/automake/config.* .
+%configure \
+	--enable-release \
+	--with-raptor=system
 
 %{__make}
 
@@ -63,7 +78,9 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog LICENSE.txt NEWS README
+%attr(755,root,root) %{_bindir}/roqet
 %attr(755,root,root) %{_libdir}/lib*.so.*.*.*
+%{_mandir}/man1/roqet.1*
 
 %files devel
 %defattr(644,root,root,755)
