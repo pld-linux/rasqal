@@ -1,22 +1,25 @@
 Summary:	Rasqal RDF Query Library
 Summary(pl):	Rasqal - biblitoteka zapytañ RDF
 Name:		rasqal
-Version:	0.9.10
-Release:	2
+Version:	0.9.11
+Release:	1
 Epoch:		1
 License:	LGPL v2.1+ or GPL v2+ or Apache v2.0+
 Group:		Libraries
-Source0:	http://librdf.org/dist/source/%{name}-%{version}.tar.gz
-# Source0-md5:	6b49ddb30df120a8a918ec12bc9e728e
+Source0:	http://download.librdf.org/source/%{name}-%{version}.tar.gz
+# Source0-md5:	6f55b05482c27a29c3b9cd57ae3c2597
 URL:		http://librdf.org/rasqal/
 BuildRequires:	automake >= 1:1.7
 BuildRequires:	flex >= 2.5.31
-BuildRequires:	libraptor-devel >= 1.4.4
+BuildRequires:	libraptor-devel >= 1.4.8
+BuildRequires:	libxml2-devel >= 2.4.0
 BuildRequires:	pcre-devel >= 3.9
-#BuildRequires:	redland-devel >= 0.9.16
-Requires:	libraptor >= 1.4.4
+#BuildRequires:	redland-devel >= 0.9.6
+BuildRequires:	rpmbuild(macros) >= 1.98
+Requires:	libraptor >= 1.4.8
+Requires:	libxml2 >= 2.4.0
 Requires:	pcre >= 3.9
-#Requires:	redland >= 0.9.16
+#Requires:	redland >= 0.9.6
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -30,9 +33,10 @@ Summary:	Header files for the Rasqal RDF query library
 Summary(pl):	Pliki nag³ówkowe do biblioteki zapytañ RDF Rasqal
 Group:		Development/Libraries
 Requires:	%{name} = %{epoch}:%{version}-%{release}
-Requires:	libraptor-devel >= 1.4.4
+Requires:	libraptor-devel >= 1.4.8
+Requires:	libxml2-devel >= 2.4.0
 Requires:	pcre-devel >= 3.9
-#Requires:	redland-devel >= 0.9.16
+#Requires:	redland-devel >= 0.9.6
 
 %description devel
 Header files for the Rasqal RDF query library.
@@ -58,7 +62,9 @@ Statyczna biblioteka Rasqal.
 %build
 cp -f /usr/share/automake/config.* .
 %configure \
+	--enable-datatypes \
 	--enable-release \
+	--with-html-dir=%{_gtkdocdir} \
 	--with-raptor=system \
 	--with-triples-source=raptor
 # don't use redland as triples-source, as it would cause linking loop
@@ -86,14 +92,14 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%doc docs/{README.html,api}
 %attr(755,root,root) %{_bindir}/rasqal-config
 %attr(755,root,root) %{_libdir}/lib*.so
 %{_libdir}/lib*.la
 %{_includedir}/*
+%{_pkgconfigdir}/rasqal.pc
 %{_mandir}/man1/rasqal-config.1*
 %{_mandir}/man3/librasqal.3*
-%{_pkgconfigdir}/rasqal.pc
+%{_gtkdocdir}/rasqal
 
 %files static
 %defattr(644,root,root,755)
