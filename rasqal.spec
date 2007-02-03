@@ -1,13 +1,13 @@
 Summary:	Rasqal RDF Query Library
 Summary(pl):	Rasqal - biblitoteka zapytañ RDF
 Name:		rasqal
-Version:	0.9.12
+Version:	0.9.13
 Release:	1
 Epoch:		1
 License:	LGPL v2.1+ or GPL v2+ or Apache v2.0+
 Group:		Libraries
 Source0:	http://download.librdf.org/source/%{name}-%{version}.tar.gz
-# Source0-md5:	403b95de5c23124f6a6491bdde3eba86
+# Source0-md5:	5cbf3193bf473d1e35ee4539d1528b8b
 URL:		http://librdf.org/rasqal/
 BuildRequires:	automake >= 1:1.7
 BuildRequires:	flex >= 2.5.31
@@ -87,15 +87,15 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog LICENSE.txt NEWS README
 %attr(755,root,root) %{_bindir}/roqet
-%attr(755,root,root) %{_libdir}/lib*.so.*.*.*
+%attr(755,root,root) %{_libdir}/librasqal.so.*.*.*
 %{_mandir}/man1/roqet.1*
 
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/rasqal-config
-%attr(755,root,root) %{_libdir}/lib*.so
-%{_libdir}/lib*.la
-%{_includedir}/*
+%attr(755,root,root) %{_libdir}/librasqal.so
+%{_libdir}/librasqal.la
+%{_includedir}/rasqal.h
 %{_pkgconfigdir}/rasqal.pc
 %{_mandir}/man1/rasqal-config.1*
 %{_mandir}/man3/librasqal.3*
@@ -103,4 +103,4 @@ rm -rf $RPM_BUILD_ROOT
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/lib*.a
+%{_libdir}/librasqal.a
