@@ -1,5 +1,5 @@
 Summary:	Rasqal RDF Query Library
-Summary(pl):	Rasqal - biblitoteka zapytaÒ RDF
+Summary(pl.UTF-8):   Rasqal - biblitoteka zapyta≈Ñ RDF
 Name:		rasqal
 Version:	0.9.13
 Release:	1
@@ -25,12 +25,12 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 RDF Query Language.
 
-%description -l pl
-JÍzyk zapytaÒ RDF.
+%description -l pl.UTF-8
+Jƒôzyk zapyta≈Ñ RDF.
 
 %package devel
 Summary:	Header files for the Rasqal RDF query library
-Summary(pl):	Pliki nag≥Ûwkowe do biblioteki zapytaÒ RDF Rasqal
+Summary(pl.UTF-8):   Pliki nag≈Ç√≥wkowe do biblioteki zapyta≈Ñ RDF Rasqal
 Group:		Development/Libraries
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Requires:	libraptor-devel >= 1.4.9
@@ -41,19 +41,19 @@ Requires:	pcre-devel >= 3.9
 %description devel
 Header files for the Rasqal RDF query library.
 
-%description devel -l pl
-Pliki nag≥Ûwkowe do biblioteki zapytaÒ RDF Rasqal.
+%description devel -l pl.UTF-8
+Pliki nag≈Ç√≥wkowe do biblioteki zapyta≈Ñ RDF Rasqal.
 
 %package static
 Summary:	Static Rasqal library
-Summary(pl):	Statyczna biblioteka Rasqal
+Summary(pl.UTF-8):   Statyczna biblioteka Rasqal
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{epoch}:%{version}-%{release}
 
 %description static
 Static Rasqal library.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Statyczna biblioteka Rasqal.
 
 %prep
