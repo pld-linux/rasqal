@@ -1,23 +1,23 @@
 Summary:	Rasqal RDF Query Library
 Summary(pl.UTF-8):	Rasqal - biblitoteka zapytań RDF
 Name:		rasqal
-Version:	0.9.13
-Release:	2
+Version:	0.9.14
+Release:	1
 Epoch:		1
 License:	LGPL v2.1+ or GPL v2+ or Apache v2.0+
 Group:		Libraries
 Source0:	http://download.librdf.org/source/%{name}-%{version}.tar.gz
-# Source0-md5:	5cbf3193bf473d1e35ee4539d1528b8b
+# Source0-md5:	34fd770031c4e2227be251eecc1fcf20
 URL:		http://librdf.org/rasqal/
 BuildRequires:	automake >= 1:1.7
 BuildRequires:	flex >= 2.5.31
-BuildRequires:	libraptor-devel >= 1.4.9
-BuildRequires:	libxml2-devel >= 2.4.0
+BuildRequires:	libraptor-devel >= 1.4.11
+BuildRequires:	libxml2-devel >= 1:2.6.8
 BuildRequires:	pcre-devel >= 3.9
 #BuildRequires:	redland-devel >= 0.9.6
 BuildRequires:	rpmbuild(macros) >= 1.98
-Requires:	libraptor >= 1.4.9
-Requires:	libxml2 >= 2.4.0
+Requires:	libraptor >= 1.4.11
+Requires:	libxml2 >= 1:2.6.8
 Requires:	pcre >= 3.9
 #Requires:	redland >= 0.9.6
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -33,8 +33,8 @@ Summary:	Header files for the Rasqal RDF query library
 Summary(pl.UTF-8):	Pliki nagłówkowe do biblioteki zapytań RDF Rasqal
 Group:		Development/Libraries
 Requires:	%{name} = %{epoch}:%{version}-%{release}
-Requires:	libraptor-devel >= 1.4.9
-Requires:	libxml2-devel >= 2.4.0
+Requires:	libraptor-devel >= 1.4.11
+Requires:	libxml2-devel >= 1:2.6.8
 Requires:	pcre-devel >= 3.9
 #Requires:	redland-devel >= 0.9.6
 
