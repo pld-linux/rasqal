@@ -1,23 +1,23 @@
 Summary:	Rasqal RDF Query Library
 Summary(pl.UTF-8):	Rasqal - biblitoteka zapytań RDF
 Name:		rasqal
-Version:	0.9.15
+Version:	0.9.16
 Release:	1
 Epoch:		1
 License:	LGPL v2.1+ or GPL v2+ or Apache v2.0+
 Group:		Libraries
 Source0:	http://download.librdf.org/source/%{name}-%{version}.tar.gz
-# Source0-md5:	22aa82cd8953e2a870b6f183268a957f
+# Source0-md5:	fca8706f2c4619e2fa3f8f42f8fc1e9d
 URL:		http://librdf.org/rasqal/
 BuildRequires:	automake >= 1:1.7
 BuildRequires:	flex >= 2.5.31
-BuildRequires:	libraptor-devel >= 1.4.16
+BuildRequires:	libraptor-devel >= 1.4.17
 BuildRequires:	libxml2-devel >= 1:2.6.8
 BuildRequires:	mpfr-devel
 BuildRequires:	pcre-devel >= 3.9
 #BuildRequires:	redland-devel >= 0.9.6
 BuildRequires:	rpmbuild(macros) >= 1.98
-Requires:	libraptor >= 1.4.16
+Requires:	libraptor >= 1.4.17
 Requires:	libxml2 >= 1:2.6.8
 Requires:	pcre >= 3.9
 #Requires:	redland >= 0.9.6
@@ -34,7 +34,7 @@ Summary:	Header files for the Rasqal RDF query library
 Summary(pl.UTF-8):	Pliki nagłówkowe do biblioteki zapytań RDF Rasqal
 Group:		Development/Libraries
 Requires:	%{name} = %{epoch}:%{version}-%{release}
-Requires:	libraptor-devel >= 1.4.16
+Requires:	libraptor-devel >= 1.4.17
 Requires:	libxml2-devel >= 1:2.6.8
 Requires:	mpfr-devel
 Requires:	pcre-devel >= 3.9
@@ -90,7 +90,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog LICENSE.txt NEWS NOTICE README RELEASE.html
 %attr(755,root,root) %{_bindir}/roqet
 %attr(755,root,root) %{_libdir}/librasqal.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/librasqal.so.0
+%attr(755,root,root) %ghost %{_libdir}/librasqal.so.1
 %{_mandir}/man1/roqet.1*
 
 %files devel
@@ -98,7 +98,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/rasqal-config
 %attr(755,root,root) %{_libdir}/librasqal.so
 %{_libdir}/librasqal.la
-%{_includedir}/rasqal.h
+%{_includedir}/rasqal
 %{_pkgconfigdir}/rasqal.pc
 %{_mandir}/man1/rasqal-config.1*
 %{_mandir}/man3/librasqal.3*
