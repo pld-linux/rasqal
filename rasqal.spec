@@ -11,17 +11,22 @@ Source0:	http://download.librdf.org/source/%{name}-%{version}.tar.gz
 URL:		http://librdf.org/rasqal/
 BuildRequires:	automake >= 1:1.7
 BuildRequires:	flex >= 2.5.31
+BuildRequires:	gtk-doc
 BuildRequires:	libraptor-devel >= 1.4.17
 BuildRequires:	libxml2-devel >= 1:2.6.8
 BuildRequires:	mpfr-devel
 BuildRequires:	pcre-devel >= 3.9
+BuildRequires:	pkgconfig
 #BuildRequires:	redland-devel >= 0.9.6
 BuildRequires:	rpmbuild(macros) >= 1.98
+BuildRequires:	which
 Requires:	libraptor >= 1.4.17
 Requires:	libxml2 >= 1:2.6.8
 Requires:	pcre >= 3.9
 #Requires:	redland >= 0.9.6
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%undefine	__cxx
 
 %description
 RDF Query Language.
