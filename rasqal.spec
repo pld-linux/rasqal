@@ -1,18 +1,18 @@
 Summary:	Rasqal RDF Query Library
 Summary(pl.UTF-8):	Rasqal - biblitoteka zapytań RDF
 Name:		rasqal
-Version:	0.9.16
-Release:	2
+Version:	0.9.19
+Release:	1
 Epoch:		1
 License:	LGPL v2.1+ or GPL v2+ or Apache v2.0+
 Group:		Libraries
 Source0:	http://download.librdf.org/source/%{name}-%{version}.tar.gz
-# Source0-md5:	fca8706f2c4619e2fa3f8f42f8fc1e9d
+# Source0-md5:	9bc1b40ffe1bdc794887d845d153bd4e
 URL:		http://librdf.org/rasqal/
 BuildRequires:	automake >= 1:1.7
 BuildRequires:	flex >= 2.5.31
 BuildRequires:	gtk-doc
-BuildRequires:	libraptor-devel >= 1.4.17
+BuildRequires:	libraptor-devel >= 1.4.21
 BuildRequires:	libxml2-devel >= 1:2.6.8
 BuildRequires:	mpfr-devel
 BuildRequires:	pcre-devel >= 3.9
@@ -95,7 +95,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog LICENSE.txt NEWS NOTICE README RELEASE.html
 %attr(755,root,root) %{_bindir}/roqet
 %attr(755,root,root) %{_libdir}/librasqal.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/librasqal.so.1
+%attr(755,root,root) %ghost %{_libdir}/librasqal.so.?
 %{_mandir}/man1/roqet.1*
 
 %files devel
