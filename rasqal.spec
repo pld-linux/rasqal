@@ -9,7 +9,7 @@ Group:		Libraries
 Source0:	http://download.librdf.org/source/%{name}-%{version}.tar.gz
 # Source0-md5:	c45b6cd784298e264e8757d14355ecce
 URL:		http://librdf.org/rasqal/
-BuildRequires:	automake >= 1:1.7
+BuildRequires:	automake >= 1:1.11
 BuildRequires:	flex >= 2.5.31
 BuildRequires:	gtk-doc
 BuildRequires:	libraptor-devel >= 1.4.21
@@ -19,7 +19,7 @@ BuildRequires:	pcre-devel >= 3.9
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.98
 BuildRequires:	which
-Requires:	libraptor >= 1.4.17
+Requires:	libraptor >= 1.4.21
 Requires:	libxml2 >= 1:2.6.8
 Requires:	pcre >= 3.9
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -37,7 +37,7 @@ Summary:	Header files for the Rasqal RDF query library
 Summary(pl.UTF-8):	Pliki nagłówkowe do biblioteki zapytań RDF Rasqal
 Group:		Development/Libraries
 Requires:	%{name} = %{epoch}:%{version}-%{release}
-Requires:	libraptor-devel >= 1.4.17
+Requires:	libraptor-devel >= 1.4.21
 Requires:	libxml2-devel >= 1:2.6.8
 Requires:	mpfr-devel
 Requires:	pcre-devel >= 3.9
@@ -92,7 +92,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog LICENSE.txt NEWS NOTICE README RELEASE.html
 %attr(755,root,root) %{_bindir}/roqet
 %attr(755,root,root) %{_libdir}/librasqal.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/librasqal.so.?
+%attr(755,root,root) %ghost %{_libdir}/librasqal.so.2
 %{_mandir}/man1/roqet.1*
 
 %files devel
