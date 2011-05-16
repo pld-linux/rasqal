@@ -1,0 +1,11 @@
+--- rasqal-0.9.25/src/Makefile.am.orig	2011-02-22 06:56:29.000000000 +0100
++++ rasqal-0.9.25/src/Makefile.am	2011-05-16 17:19:14.251457730 +0200
+@@ -115,7 +115,7 @@
+ librasqal_la_SOURCES += strcasecmp.c
+ endif
+ librasqal_la_LDFLAGS = -version-info @RASQAL_LIBTOOL_VERSION@
+-librasqal_la_LIBADD = @LTLIBOBJS@ @RASQAL_INTERNAL_LIBS@ @RASQAL_EXTERNAL_LIBS@ $(MEM_LIBS)
++librasqal_la_LIBADD = @LTLIBOBJS@ @RASQAL_INTERNAL_LIBS@ @RASQAL_EXTERNAL_LIBS@ $(MEM_LIBS) -lm
+ librasqal_la_DEPENDENCIES = @LTLIBOBJS@ @RASQAL_INTERNAL_LIBS@
+ 
+ 
