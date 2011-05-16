@@ -2,17 +2,20 @@ Summary:	Rasqal RDF Query Library
 Summary(pl.UTF-8):	Rasqal - biblitoteka zapytań RDF
 Name:		rasqal
 Version:	0.9.25
-Release:	1
+Release:	2
 Epoch:		1
 License:	LGPL v2.1+ or GPL v2+ or Apache v2.0+
 Group:		Libraries
 Source0:	http://download.librdf.org/source/%{name}-%{version}.tar.gz
 # Source0-md5:	ee12d7ad59c581eb65db89c851672c0a
+Patch0:		%{name}-link.patch
 URL:		http://librdf.org/rasqal/
+BuildRequires:	autoconf >= 2.62
 BuildRequires:	automake >= 1:1.11
 BuildRequires:	flex >= 2.5.31
 BuildRequires:	gtk-doc >= 1.3
 BuildRequires:	libraptor2-devel >= 2.0.0
+BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 1:2.6.8
 BuildRequires:	mpfr-devel
 BuildRequires:	pcre-devel >= 3.9
@@ -62,9 +65,14 @@ Statyczna biblioteka Rasqal.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
-cp -f /usr/share/automake/config.* .
+%{__libtoolize}
+%{__aclocal} -I build
+%{__autoconf}
+%{__autoheader}
+%{__automake}
 %configure \
 	--enable-datatypes \
 	--enable-release \
