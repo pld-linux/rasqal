@@ -1,13 +1,13 @@
 Summary:	Rasqal RDF Query Library
 Summary(pl.UTF-8):	Rasqal - biblitoteka zapytań RDF
 Name:		rasqal
-Version:	0.9.25
-Release:	2
+Version:	0.9.26
+Release:	1
 Epoch:		1
 License:	LGPL v2.1+ or GPL v2+ or Apache v2.0+
 Group:		Libraries
 Source0:	http://download.librdf.org/source/%{name}-%{version}.tar.gz
-# Source0-md5:	ee12d7ad59c581eb65db89c851672c0a
+# Source0-md5:	1e9fe5423498f10f636319633855e691
 Patch0:		%{name}-link.patch
 URL:		http://librdf.org/rasqal/
 BuildRequires:	autoconf >= 2.62
