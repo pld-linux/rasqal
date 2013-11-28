@@ -1,22 +1,25 @@
 Summary:	Rasqal RDF Query Library
 Summary(pl.UTF-8):	Rasqal - biblitoteka zapytań RDF
 Name:		rasqal
-Version:	0.9.29
-Release:	3
+Version:	0.9.30
+Release:	1
 Epoch:		1
 License:	LGPL v2.1+ or GPL v2+ or Apache v2.0+
 Group:		Libraries
 Source0:	http://download.librdf.org/source/%{name}-%{version}.tar.gz
-# Source0-md5:	49e4b75a0c67465edf55dd20606715fa
+# Source0-md5:	b12c5f9cfdb6b04efce5a4a186b8416b
 Patch0:		%{name}-link.patch
 URL:		http://librdf.org/rasqal/
 BuildRequires:	autoconf >= 2.62
 BuildRequires:	automake >= 1:1.11
-BuildRequires:	flex >= 2.5.31
+BuildRequires:	bison >= 2.6
+BuildRequires:	flex >= 2.5.33
 BuildRequires:	gtk-doc >= 1.3
 BuildRequires:	libraptor2-devel >= 2.0.7
-BuildRequires:	libtool
+BuildRequires:	libtool >= 2:2
+BuildRequires:	libuuid-devel
 BuildRequires:	libxml2-devel >= 1:2.6.8
+BuildRequires:	mhash-devel
 BuildRequires:	mpfr-devel
 BuildRequires:	pcre-devel >= 3.9
 BuildRequires:	pkgconfig
@@ -42,6 +45,7 @@ Group:		Development/Libraries
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Requires:	libraptor2-devel >= 2.0.7
 Requires:	libxml2-devel >= 1:2.6.8
+Requires:	mhash-devel
 Requires:	mpfr-devel
 Requires:	pcre-devel >= 3.9
 
