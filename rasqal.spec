@@ -2,7 +2,7 @@ Summary:	Rasqal RDF Query Library
 Summary(pl.UTF-8):	Rasqal - biblitoteka zapytań RDF
 Name:		rasqal
 Version:	0.9.33
-Release:	2
+Release:	3
 Epoch:		1
 License:	LGPL v2.1+ or GPL v2+ or Apache v2.0+
 Group:		Libraries
@@ -93,6 +93,9 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+# obsoleted by pkg-config
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/librasqal.la
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -111,7 +114,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/rasqal-config
 %attr(755,root,root) %{_libdir}/librasqal.so
-%{_libdir}/librasqal.la
 %{_includedir}/rasqal
 %{_pkgconfigdir}/rasqal.pc
 %{_mandir}/man1/rasqal-config.1*
